@@ -189,20 +189,22 @@ class Calculator4 {
     var oper: AbstractOperation
     
     init(oper: String) {
-        switch oper {
-        case "+":
-            self.oper = AddOperation2()
-        case "-":
-            self.oper = SubtractOperation2()
-        case "*":
-            self.oper = MultiplyOperation2()
-        case "/":
-            self.oper = DivideOperation2()
-        case "%":
-            self.oper = RemainderOperation2()
-        default:
-            self.oper = AbstractOperation()
-        }
+        self.oper = {
+            switch oper {
+            case "+":
+                AddOperation2()
+            case "-":
+                SubtractOperation2()
+            case "*":
+                MultiplyOperation2()
+            case "/":
+                DivideOperation2()
+            case "%":
+                RemainderOperation2()
+            default:
+                AbstractOperation()
+            }
+        }()
     }
         
         func operate(firstNumber: Double, secondNumber: Double) -> Double {
