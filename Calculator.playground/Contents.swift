@@ -22,10 +22,10 @@ class Calculator1 {
 }
 
 let calculator1 = Calculator1()
-let addResult1 = calculator1.calculate(oper: "+", firstNumber: 8, secondNumber: 5)// 덧셈 연산
-let subtractResult1 = calculator1.calculate(oper: "-", firstNumber: 8, secondNumber: 5)// 뺄셈 연산
-let multiplyResult1 = calculator1.calculate(oper: "*", firstNumber: 8, secondNumber: 5)// 곱셈 연산
-let divideResult1 = calculator1.calculate(oper: "/", firstNumber: 8, secondNumber: 5)// 나눗셈 연산
+let addResult1 = calculator1.calculate(oper: "+", firstNumber: 8, secondNumber: 5)
+let subtractResult1 = calculator1.calculate(oper: "-", firstNumber: 8, secondNumber: 5)
+let multiplyResult1 = calculator1.calculate(oper: "*", firstNumber: 8, secondNumber: 5)
+let divideResult1 = calculator1.calculate(oper: "/", firstNumber: 8, secondNumber: 5)
 
 print("addResult : \(addResult1)")
 print("subtractResult : \(subtractResult1)")
