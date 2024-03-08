@@ -43,10 +43,14 @@ class RemainderOperation: AbstractOperation {
 
 class Calculator {
     
-    var oper: AbstractOperation?
+    var oper: AbstractOperation
+    
+    init(oper: AbstractOperation) {
+        self.oper = oper
+    }
         
     func operate(firstNumber: Double, secondNumber: Double) -> Double {
-        return oper?.operate(firstNumber: firstNumber, secondNumber: secondNumber) ?? 0
+        return oper.operate(firstNumber: firstNumber, secondNumber: secondNumber)
         }
 }
 
@@ -61,9 +65,8 @@ func DivideOperateThrows(number: Double) throws -> Double {
 }
 
 
-let calculator = Calculator()
+let calculator = Calculator(oper: AddOperation())
 
-calculator.oper = AddOperation()
 let addResult = calculator.operate(firstNumber: 8, secondNumber: 5)
 calculator.oper = SubtractOperation()
 let subtractResult = calculator.operate(firstNumber: 8, secondNumber: 5)
