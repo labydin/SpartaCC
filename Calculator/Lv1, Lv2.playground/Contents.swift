@@ -12,7 +12,10 @@ class Calculator {
         case "*":
             return firstNumber * secondNumber
         case "/":
-            guard secondNumber != 0 else { return 0 }
+            guard secondNumber != 0 else {
+                print("분모가 0이므로 나누기 불가능")
+                return 0
+            }
             return firstNumber / secondNumber
         case "%":
             return Double(Int(firstNumber) % Int(secondNumber))
@@ -26,7 +29,7 @@ let calculator = Calculator()
 let addResult = calculator.calculate(oper: "+", firstNumber: 8, secondNumber: 5)
 let subtractResult = calculator.calculate(oper: "-", firstNumber: 8, secondNumber: 5)
 let multiplyResult = calculator.calculate(oper: "*", firstNumber: 8, secondNumber: 5)
-let divideResult = calculator.calculate(oper: "/", firstNumber: 8, secondNumber: 5)
+let divideResult = calculator.calculate(oper: "/", firstNumber: 8, secondNumber: 0)
 let remainderResult = calculator.calculate(oper: "%", firstNumber: 8, secondNumber: 5)
 
 print("addResult : \(addResult)")
