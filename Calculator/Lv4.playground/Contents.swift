@@ -26,7 +26,11 @@ class MultiplyOperation: AbstractOperation {
 
 class DivideOperation: AbstractOperation {
     override func operate(firstNumber: Double, secondNumber: Double) -> Double {
-        guard secondNumber != 0 else { return 0 }
+        do {
+            try DivideOperateThrows(number: secondNumber)
+        } catch {
+            print("분모가 0이므로 나누기 불가능")
+        }
         return firstNumber / secondNumber
     }
 }
@@ -46,6 +50,16 @@ class Calculator {
         }
 }
 
+//에러 처리
+enum DivideError: Error {
+    case secondNumberIsZero
+}
+
+func DivideOperateThrows(number: Double) throws -> Double {
+    guard number != 0 else { throw DivideError.secondNumberIsZero }
+    return number
+}
+
 
 let calculator = Calculator()
 
@@ -56,7 +70,7 @@ let subtractResult = calculator.operate(firstNumber: 8, secondNumber: 5)
 calculator.oper = MultiplyOperation()
 let multiplyResult = calculator.operate(firstNumber: 8, secondNumber: 5)
 calculator.oper = DivideOperation()
-let divideResult = calculator.operate(firstNumber: 8, secondNumber: 5)
+let divideResult = calculator.operate(firstNumber: 8, secondNumber: 0)
 calculator.oper = RemainderOperation()
 let remainderResult = calculator.operate(firstNumber: 8, secondNumber: 5)
 
