@@ -41,6 +41,7 @@ class RemainderOperation: AbstractOperation {
     }
 }
 
+
 class Calculator {
     
     var oper: AbstractOperation
