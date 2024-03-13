@@ -37,7 +37,7 @@ class DivideOperation: AbstractOperation {
 
 class RemainderOperation: AbstractOperation {
     override func operate(firstNumber: Double, secondNumber: Double) -> Double {
-        return Double(Int(firstNumber) % Int(secondNumber))
+        return Double(Int(firstNumber) % Int(secondNumber))    //truncatingRainder(dividingBy:)
     }
 }
 
@@ -76,7 +76,7 @@ let multiplyResult = calculator.operate(firstNumber: 8, secondNumber: 5)
 calculator.oper = DivideOperation()
 let divideResult = calculator.operate(firstNumber: 8, secondNumber: 0)
 calculator.oper = RemainderOperation()
-let remainderResult = calculator.operate(firstNumber: 8, secondNumber: 5)
+let remainderResult = calculator.operate(firstNumber: 10.5, secondNumber: 3)
 
 print("addResult : \(addResult)")
 print("subtractResult : \(subtractResult)")
