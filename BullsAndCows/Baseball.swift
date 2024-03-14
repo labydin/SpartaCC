@@ -49,10 +49,8 @@ struct BaseballGame {
 
             if let input = readLine(), let number = Int(input)  {
                 myChoice = String(number).compactMap{ Int(String($0)) }
-                trialCount += 1
             } else {
                 print("숫자가 아닙니다.")
-                trialCount += 1
                 continue }
             
             if myChoice.count != 3 {
@@ -75,6 +73,7 @@ struct BaseballGame {
         var strike = 0
         var ball = 0
         
+        trialCount += 1
         for i in 0...2 {                               // 컴퓨터선택과 내선택 비교
             for j in 0...2 where com[i] == mine[j] {
                 if i == j {
@@ -83,7 +82,7 @@ struct BaseballGame {
             }
         }
         
-        if strike == 0, ball == 0 {                     // 비교 결과 출력
+        if strike == 0, ball == 0 {                     // 결과 출력
             print("Nothing")
         } else if strike > 0, strike > 3, ball == 0 {
             print("\(strike)스트라이크")
