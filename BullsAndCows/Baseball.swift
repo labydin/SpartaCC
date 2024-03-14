@@ -49,7 +49,7 @@ struct BaseballGame {
 
             if let input = readLine(), let number = Int(input)  {
                 myChoice = String(number).compactMap{ Int(String($0)) }
-            } else {
+            } else {                                                          //올바른 입력 조건 아닐 경우
                 print("숫자가 아닙니다.")
                 continue }
             
@@ -120,6 +120,10 @@ struct BaseballGame {
     
     func recordManager(_ arr: [Int]) -> () {
         print("< 게임 기록 보기 >")
+        
+        if arr.isEmpty {
+            print("게임 기록이 없습니다.")
+        }
         
         for (offset, value) in arr.enumerated() {
             print("\(offset + 1)번째 게임 : 시도 횟수 - \(value)")
