@@ -24,7 +24,7 @@ struct BaseballGame {
                 continue }
             switch number {
             case 1:
-                start()
+                playGame()
             case 2:
                 recordManager(recordArr)
             case 3:
@@ -38,7 +38,7 @@ struct BaseballGame {
     
     
     
-    mutating func start() {
+    mutating func playGame() {
         print("< 게임을 시작합니다 >")
         print("숫자를 입력하세요.")
         
@@ -67,33 +67,33 @@ struct BaseballGame {
         }
     }
             
-     
+    
     
     mutating func comparison(_ com: [Int], _ mine: [Int]) -> () {
         var strike = 0
         var ball = 0
         
         trialCount += 1
-        for i in 0...2 {                               // 컴퓨터선택과 내선택 비교
-            for j in 0...2 where com[i] == mine[j] {
-                if i == j {
-                    strike += 1
-                } else { ball += 1 }
+        
+        for (i, value) in mine.enumerated() {
+            if com[i] == mine[i] {
+                strike += 1
+            } else if com.contains(value) {
+                ball += 1
             }
         }
         
         if strike == 0, ball == 0 {                     // 결과 출력
             print("Nothing")
-        } else if strike > 0, strike > 3, ball == 0 {
-            print("\(strike)스트라이크")
-        } else if strike == 0, ball > 0 {
-            print("\(ball)볼")
         } else if strike == 3 {
             print("정답입니다!")
             recordArr.append(trialCount)
             trialCount = 0
             intro()
-        } else { print("\(strike)스트라이크 \(ball)볼") }
+        } else {
+            print("\(strike)스트라이크", terminator: " ")
+            print("\(ball)볼")
+        }
     }
 
       
