@@ -9,7 +9,7 @@ import UIKit
 
 
 struct ToDo {
-    let id: Int
+    var id: Int
     var title: String
     var isCompleted: Bool
 }

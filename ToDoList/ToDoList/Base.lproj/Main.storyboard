@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="03b-ZR-OZk">
-                                <rect key="frame" x="0.0" y="134" width="393" height="664"/>
+                                <rect key="frame" x="0.0" y="134" width="393" height="684"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCell" rowHeight="65" id="OUa-pM-Yam" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
@@ -44,6 +44,10 @@
                                                             </connections>
                                                         </switch>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="s25-19-3BI" firstAttribute="top" secondItem="pLZ-r9-dmj" secondAttribute="top" id="DQx-Fa-Rg5"/>
+                                                        <constraint firstItem="pLZ-r9-dmj" firstAttribute="bottom" secondItem="s25-19-3BI" secondAttribute="bottom" id="anB-e2-CCP"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
@@ -79,7 +83,7 @@
                             <constraint firstItem="03b-ZR-OZk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6PB-XT-eeN"/>
                             <constraint firstItem="03b-ZR-OZk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CHs-qa-Olt"/>
                             <constraint firstItem="03b-ZR-OZk" firstAttribute="top" secondItem="ffl-gJ-Qn7" secondAttribute="bottom" constant="20" id="g1y-u1-QSG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="03b-ZR-OZk" secondAttribute="bottom" constant="20" id="uIq-63-5FV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="03b-ZR-OZk" secondAttribute="bottom" id="uIq-63-5FV"/>
                             <constraint firstItem="ffl-gJ-Qn7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="umV-kG-0gb"/>
                         </constraints>
                     </view>
