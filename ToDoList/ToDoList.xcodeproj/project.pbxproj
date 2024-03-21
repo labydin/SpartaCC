@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C76FF6A2BAC08A5005B3272 /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C76FF692BAC08A5005B3272 /* ToDoCell.swift */; };
 		9CAC99F72BA92F4C007936E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC99F62BA92F4C007936E1 /* AppDelegate.swift */; };
 		9CAC99F92BA92F4C007936E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC99F82BA92F4C007936E1 /* SceneDelegate.swift */; };
 		9CAC99FB2BA92F4C007936E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC99FA2BA92F4C007936E1 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C76FF692BAC08A5005B3272 /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
 		9CAC99F32BA92F4C007936E1 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CAC99F62BA92F4C007936E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CAC99F82BA92F4C007936E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				9CAC99F82BA92F4C007936E1 /* SceneDelegate.swift */,
 				9CAC99FA2BA92F4C007936E1 /* ViewController.swift */,
 				9CAC99FC2BA92F4C007936E1 /* Main.storyboard */,
+				9C76FF692BAC08A5005B3272 /* ToDoCell.swift */,
 				9CAC99FF2BA92F4D007936E1 /* Assets.xcassets */,
 				9CAC9A012BA92F4D007936E1 /* LaunchScreen.storyboard */,
 				9CAC9A042BA92F4D007936E1 /* Info.plist */,
@@ -141,6 +144,7 @@
 				9CAC99FB2BA92F4C007936E1 /* ViewController.swift in Sources */,
 				9CAC99F72BA92F4C007936E1 /* AppDelegate.swift in Sources */,
 				9CAC99F92BA92F4C007936E1 /* SceneDelegate.swift in Sources */,
+				9C76FF6A2BAC08A5005B3272 /* ToDoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
