@@ -12,7 +12,7 @@ class ViewController: UIViewController /* UITableViewDelegate*/ {
     @IBOutlet weak var tableView: UITableView!
     
     var listsArray: [ToDo] = []
-    var todoCell = ToDoCell()
+    
     
     
     override func viewDidLoad() {
@@ -33,7 +33,13 @@ class ViewController: UIViewController /* UITableViewDelegate*/ {
             myTextField.placeholder = "할 일을 입력하세요"
         }
         
-        var add = UIAlertAction(title: "추가", style: .default, handler: nil)
+        var add = UIAlertAction(title: "추가", style: .default) { add in
+            if let textField = alert.textFields?.first, let text = textField.text {
+               
+                self.listsArray.append(ToDo(id: self.listsArray.count, title: text, isCompleted: false))
+                self.tableView.reloadData()   // 다시 반영하라
+            }
+        }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
         alert.addAction(cancel)
@@ -56,7 +62,9 @@ extension ViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCell", for: indexPath) as! ToDoCell
         
-        //cell.toDoLabel.text = alert.title//alert창 텍스트필드 입력내용
+        cell.toDoLabel.text = listsArray[indexPath.row].title
+        cell.completeSwitch.isOn = listsArray[indexPath.row].isCompleted
+        
         return cell
     }
     
@@ -66,3 +74,8 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     
 }
+
+
+
+
+
