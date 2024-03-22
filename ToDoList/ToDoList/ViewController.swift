@@ -19,7 +19,7 @@ class ViewController: UIViewController /* UITableViewDelegate*/ {
         super.viewDidLoad()
         
         tableView.dataSource = self
-        //tableView.delegate = self
+        tableView.delegate = self
         
     }
     
@@ -33,11 +33,10 @@ class ViewController: UIViewController /* UITableViewDelegate*/ {
             myTextField.placeholder = "할 일을 입력하세요"
         }
         
-        var add = UIAlertAction(title: "추가", style: .default) { add in
+        let add = UIAlertAction(title: "추가", style: .default) { add in
             if let textField = alert.textFields?.first, let text = textField.text {
-               
                 self.listsArray.append(ToDo(id: self.listsArray.count, title: text, isCompleted: false))
-                self.tableView.reloadData()   // 다시 반영하라
+                self.tableView.reloadData()     // 다시 반영하여 그려라
             }
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
@@ -51,7 +50,7 @@ class ViewController: UIViewController /* UITableViewDelegate*/ {
 }
 
 
-extension ViewController: UITableViewDataSource {
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listsArray.count
@@ -68,12 +67,24 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
     
-}
-
-
-extension ViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            listsArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+            
+        }
+    }
 }
+
+
 
 
 

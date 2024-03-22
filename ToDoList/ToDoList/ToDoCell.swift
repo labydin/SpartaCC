@@ -10,11 +10,9 @@ import UIKit
 class ToDoCell: UITableViewCell {
 
     @IBOutlet weak var toDoLabel: UILabel!
-    
     @IBOutlet weak var completeSwitch: UISwitch!
     
     var lists = ViewController()
-    
     
     
     override func awakeFromNib() {
@@ -29,9 +27,21 @@ class ToDoCell: UITableViewCell {
     }
 
     @IBAction func completeSwitchTapped(_ sender: UISwitch) {
-        
+        if sender.isOn {
+            toDoLabel.textColor = .gray
+            toDoLabel.attributedText = toDoLabel.text?.strikeThrough()
+        } else  {
+            toDoLabel.textColor = .black
+        }
     }
     
 }
 
 
+extension String {
+    func strikeThrough() -> NSAttributedString {
+        let attributeString = NSMutableAttributedString(string: self)
+        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributeString.length))
+        return attributeString
+    }
+}

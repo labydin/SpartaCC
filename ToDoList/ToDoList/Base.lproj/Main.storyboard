@@ -57,7 +57,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="completeSwitch" destination="pLZ-r9-dmj" id="cHI-jf-yc1"/>
+                                            <outlet property="completeSwitch" destination="pLZ-r9-dmj" id="4Rz-p2-MT4"/>
                                             <outlet property="toDoLabel" destination="s25-19-3BI" id="8Kd-OD-fZr"/>
                                         </connections>
                                     </tableViewCell>
