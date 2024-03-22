@@ -67,7 +67,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate, SwitchOnDe
         
         cell.toDoCellIndex = indexPath.row
         cell.switchOnDelegate = self
-        cell.textColor = listsArray[indexPath.row].isCompleted
+        cell.textSet = listsArray[indexPath.row].isCompleted
         
         cell.selectionStyle = .none
         
@@ -96,13 +96,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate, SwitchOnDe
     }
     
 }
-
-
-//extension ViewController: SwitchOnDelegate {
-//    func switchChange(index: Int, switchIs: Bool) {
-//        listsArray[index].switchOn = switchIs
-//    }
-//}
 
 
 
