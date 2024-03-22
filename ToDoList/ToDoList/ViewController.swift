@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ViewController: UIViewController /* UITableViewDelegate*/ {
+class ViewController: UIViewController {
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -50,7 +51,7 @@ class ViewController: UIViewController /* UITableViewDelegate*/ {
 }
 
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension ViewController: UITableViewDataSource, UITableViewDelegate, SwitchOnDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listsArray.count
@@ -63,6 +64,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.toDoLabel.text = listsArray[indexPath.row].title
         cell.completeSwitch.isOn = listsArray[indexPath.row].isCompleted
+        
+        cell.toDoCellIndex = indexPath.row
+        cell.switchOnDelegate = self
+        cell.textColor = listsArray[indexPath.row].isCompleted
+        
+        cell.selectionStyle = .none
         
         return cell
     }
@@ -82,10 +89,20 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             
         }
     }
+    
+    
+    func switchChange(index: Int, switchIs: Bool) {
+        listsArray[index].isCompleted = switchIs
+    }
+    
 }
 
 
-
+//extension ViewController: SwitchOnDelegate {
+//    func switchChange(index: Int, switchIs: Bool) {
+//        listsArray[index].switchOn = switchIs
+//    }
+//}
 
 
 

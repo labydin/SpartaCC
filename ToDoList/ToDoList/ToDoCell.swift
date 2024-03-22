@@ -13,11 +13,12 @@ class ToDoCell: UITableViewCell {
     @IBOutlet weak var completeSwitch: UISwitch!
     
     var lists = ViewController()
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
+    var switchOnDelegate: SwitchOnDelegate?
+    var toDoCellIndex: Int = 0
+    var textColor: Bool = false {
+        didSet {
+            textColorChanged()
+        }
     }
 
     
@@ -26,11 +27,34 @@ class ToDoCell: UITableViewCell {
 
     }
 
+    
+    override func prepareForReuse() {       // 셀을 초기화 해주는 코드.
+        super.prepareForReuse()
+        
+        completeSwitch.isOn = false
+        toDoLabel.text = nil
+        toDoLabel.textColor = .black
+    }
+    
+    
     @IBAction func completeSwitchTapped(_ sender: UISwitch) {
         if sender.isOn {
-            toDoLabel.textColor = .gray
-            toDoLabel.attributedText = toDoLabel.text?.strikeThrough()
+            self.switchOnDelegate?.switchChange(index: toDoCellIndex, switchIs: true)
+            textColor = sender.isOn
+            
         } else  {
+            self.switchOnDelegate?.switchChange(index: toDoCellIndex, switchIs: false)
+            textColor = sender.isOn
+        }
+    }
+    
+    
+    func textColorChanged() {
+        
+        if textColor {
+            toDoLabel.textColor = .gray
+            
+        } else {
             toDoLabel.textColor = .black
         }
     }
@@ -38,10 +62,19 @@ class ToDoCell: UITableViewCell {
 }
 
 
-extension String {
-    func strikeThrough() -> NSAttributedString {
-        let attributeString = NSMutableAttributedString(string: self)
-        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributeString.length))
-        return attributeString
-    }
+
+
+
+//extension String {
+//    func strikeThrough() -> NSAttributedString {
+//        let attributeString = NSMutableAttributedString(string: self)
+//        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributeString.length))
+//        return attributeString
+//    }
+//}
+
+
+protocol SwitchOnDelegate {
+    func switchChange(index: Int, switchIs: Bool)
+    
 }
