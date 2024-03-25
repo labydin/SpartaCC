@@ -32,12 +32,14 @@ class ViewController: UIViewController {
         
         alert.addTextField { myTextField in
             myTextField.placeholder = "할 일을 입력하세요"
+            myTextField.autocorrectionType = .no
         }
         
         let add = UIAlertAction(title: "추가", style: .default) { add in
             if let textField = alert.textFields?.first, let text = textField.text {
                 self.listsArray.append(ToDo(id: self.listsArray.count, title: text, isCompleted: false))
-                self.tableView.reloadData()     // 다시 반영하여 그려라
+                self.tableView.reloadData()           // 다시 반영하여 그려라
+                //print(self.listsArray)
             }
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
@@ -62,12 +64,16 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate, SwitchOnDe
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCell", for: indexPath) as! ToDoCell
         
-        cell.toDoLabel.text = listsArray[indexPath.row].title
-        cell.completeSwitch.isOn = listsArray[indexPath.row].isCompleted
+        let lists = listsArray[indexPath.row]
+        //print(indexPath.row, lists)
         
+        
+        cell.toDoLabel.text = lists.title
         cell.toDoCellIndex = indexPath.row
+        cell.completeSwitch.isOn = lists.isCompleted
+        cell.textChanged()
+        
         cell.switchOnDelegate = self
-        cell.textSet = listsArray[indexPath.row].isCompleted
         
         cell.selectionStyle = .none
         
@@ -90,11 +96,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate, SwitchOnDe
         }
     }
     
-    
     func switchChange(index: Int, switchIs: Bool) {
-        listsArray[index].isCompleted = switchIs
-    }
-    
+            listsArray[index].isCompleted = switchIs
+        }
 }
 
 
