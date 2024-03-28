@@ -21,26 +21,25 @@
                                 <rect key="frame" x="0.0" y="134" width="393" height="684"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCell" rowHeight="65" id="OUa-pM-Yam" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="65"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCell" rowHeight="56" id="OUa-pM-Yam" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OUa-pM-Yam" id="t0C-Dj-GyN">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="VKS-b0-FoU">
-                                                    <rect key="frame" x="10" y="17.666666666666671" width="373" height="30"/>
+                                                    <rect key="frame" x="10" y="10" width="373" height="36"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s25-19-3BI">
-                                                            <rect key="frame" x="0.0" y="0.0" width="303" height="30"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="303" height="36"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pLZ-r9-dmj">
-                                                            <rect key="frame" x="323" y="0.0" width="52" height="30"/>
+                                                            <rect key="frame" x="323" y="0.0" width="52" height="36"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="7OK-hC-XYi"/>
                                                                 <constraint firstAttribute="width" constant="50" id="gLK-qd-BcS"/>
                                                             </constraints>
                                                             <connections>
@@ -49,15 +48,17 @@
                                                         </switch>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="s25-19-3BI" firstAttribute="top" secondItem="pLZ-r9-dmj" secondAttribute="top" id="DQx-Fa-Rg5"/>
-                                                        <constraint firstItem="pLZ-r9-dmj" firstAttribute="bottom" secondItem="s25-19-3BI" secondAttribute="bottom" id="anB-e2-CCP"/>
+                                                        <constraint firstItem="s25-19-3BI" firstAttribute="bottom" secondItem="pLZ-r9-dmj" secondAttribute="bottom" id="0Sq-Qg-WGN"/>
+                                                        <constraint firstItem="s25-19-3BI" firstAttribute="top" secondItem="pLZ-r9-dmj" secondAttribute="top" id="6vn-g4-rgn"/>
+                                                        <constraint firstAttribute="height" constant="30" id="fzd-2G-4iX"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="VKS-b0-FoU" secondAttribute="trailing" constant="10" id="BjD-yd-ss7"/>
                                                 <constraint firstItem="VKS-b0-FoU" firstAttribute="leading" secondItem="t0C-Dj-GyN" secondAttribute="leading" constant="10" id="FUs-xs-kqf"/>
-                                                <constraint firstItem="VKS-b0-FoU" firstAttribute="centerY" secondItem="t0C-Dj-GyN" secondAttribute="centerY" id="L55-l4-kr1"/>
+                                                <constraint firstItem="VKS-b0-FoU" firstAttribute="top" secondItem="t0C-Dj-GyN" secondAttribute="top" constant="10" id="shv-bi-mhE"/>
+                                                <constraint firstAttribute="bottom" secondItem="VKS-b0-FoU" secondAttribute="bottom" constant="10" id="z02-VA-WuN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

@@ -26,8 +26,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
-        // alert 창 띄우기(텍스트필드 포함)
-        // 작성한 내용 테이블뷰셀 위로 올라가게
+        
         let alert = UIAlertController(title: "할 일 추가", message: "", preferredStyle: .alert)
         
         alert.addTextField { myTextField in
@@ -38,8 +37,7 @@ class ViewController: UIViewController {
         let add = UIAlertAction(title: "추가", style: .default) { add in
             if let textField = alert.textFields?.first, let text = textField.text {
                 self.listsArray.append(ToDo(id: self.listsArray.count, title: text, isCompleted: false))
-                self.tableView.reloadData()           // 다시 반영하여 그려라
-                //print(self.listsArray)
+                self.tableView.reloadData()
             }
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
@@ -65,8 +63,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate, SwitchOnDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCell", for: indexPath) as! ToDoCell
         
         let lists = listsArray[indexPath.row]
-        //print(indexPath.row, lists)
-        
         
         cell.toDoLabel.text = lists.title
         cell.toDoCellIndex = indexPath.row
